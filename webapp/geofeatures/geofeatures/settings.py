@@ -24,7 +24,7 @@ env_file_path = BASE_DIR.parent.parent / '.env'
 if os.path.exists(env_file_path):
 	config = Config(RepositoryEnv(env_file_path))
 else:
-	config = os.environ
+	config = os.environ.get
 
 
 # Quick-start development settings - unsuitable for production
@@ -125,12 +125,12 @@ WSGI_APPLICATION = 'geofeatures.wsgi.application'
 
 DATABASES = {
 	'default': {
-		'ENGINE': 'django.contrib.gis.db.backends.postgis',
-		'NAME': config('DB_NAME'),
-		'USER': config('DB_USER'),
-		'PASSWORD': config('DB_PASSWORD'),
+		'ENGINE': config('DB_ENGINE'),
+		'NAME': config('POSTGRES_DB'),
+		'USER': config('POSTGRES_USER'),
+		'PASSWORD': config('POSTGRES_PASSWORD'),
 		'HOST': config('DB_HOST'),
-		'PORT': config('DB_PORT', cast=int),
+		'PORT': config('DB_PORT'),
 	}
 }
 

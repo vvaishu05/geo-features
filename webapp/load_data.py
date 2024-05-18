@@ -1,15 +1,15 @@
 import requests, os
 import geopandas as gpd
-from decouple import Config
+from decouple import Config, RepositoryEnv
 from pathlib import Path
 
 # Load environment variables
 BASE_DIR = Path(__file__).resolve().parent
 env_file_path = BASE_DIR.parent / '.env'
 if os.path.exists(env_file_path):
-	config = Config(str(env_file_path))
+	config = Config(RepositoryEnv(env_file_path))
 else:
-	config = os.environ
+	config = os.environ.get
 
 # Load the dataset
 gdf = gpd.read_file(
@@ -21,7 +21,7 @@ post_url = 'http://localhost:8000/api/features/'
 
 # Get JWT token for user
 token_response = requests.post(
-	token_url, json={"username": config('DB_USER'), "password": config('DB_PASSWORD')})
+	token_url, json={"username": config('POSTGRES_USER'), "password": config('POSTGRES_PASSWORD')})
 token = token_response.json()["access"]
 
 # Iterate through GeoDataFrame and post each feature
