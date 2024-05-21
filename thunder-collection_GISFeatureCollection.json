@@ -1,0 +1,72 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "GIS Feature Collection",
+    "dateExported": "2024-05-21T03:33:16.806Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "41d2f2d7-d089-4a6f-b738-f4605403186d",
+            "colId": "e232b738-56b7-41fd-aa53-9ef248d5e824",
+            "containerId": "",
+            "name": "Get JWT token",
+            "url": "http://localhost:8000/api/token/",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-05-21T03:23:34.760Z",
+            "modified": "2024-05-21T03:24:43.223Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"username\":\"geo_user\",\n  \"password\": \"geo1234\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "46eff2de-589e-4a44-b2c3-657098fa6fa2",
+            "colId": "e232b738-56b7-41fd-aa53-9ef248d5e824",
+            "containerId": "",
+            "name": "Insert feature data",
+            "url": "http://localhost:8000/api/features/",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-05-21T03:25:32.209Z",
+            "modified": "2024-05-21T03:30:28.247Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Sample Feature\",\n    \"geom\": {\n        \"type\": \"Point\",\n        \"coordinates\": [4.895168, 52.370216]\n    }\n}\n",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "030f4aa2-5ad9-44d2-a585-9fbd0a6e5de0",
+            "colId": "e232b738-56b7-41fd-aa53-9ef248d5e824",
+            "containerId": "",
+            "name": "List feature collection",
+            "url": "http://localhost:8000/api/features/?page=1",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-05-21T03:30:56.135Z",
+            "modified": "2024-05-21T03:32:36.761Z",
+            "headers": [
+                {
+                    "name": "Authorization",
+                    "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzE1OTI0MzA1LCJpYXQiOjE3MTU5MjI1MDUsImp0aSI6ImJiOTMyYjhkMjIyOTQ1MWVhYzEzMjNiMWEwNzUwNjY0IiwidXNlcl9pZCI6MX0.D1Rbt5qUlHXXBZJaG4XY3VQldZlEaym7XP6D_Ma1cLM"
+                }
+            ],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "1",
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        }
+    ]
+}
