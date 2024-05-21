@@ -49,6 +49,7 @@ The environment variable used are:
 |Run `docker compose exec gisweb python manage.py migrate`        |  Run command to incorporate the migration script so the changes reflect in the DB
 |Run `docker compose exec gisweb python manage.py createsuperuser`        |  Run command to create Django's superusers in DB                                                                 |                                                                 |
 
+[This collection](thunder-collection_GISFeatureCollection.json) can be used as a reference for the APIs.
 
 ## Folder structure ###
 The project is organized into various folders and files, each serving a specific purpose. Below is an overview of the project structure:
@@ -79,3 +80,4 @@ The project is organized into various folders and files, each serving a specific
 - ****`README.md`****: Documentation for developers
 
 - ****`docker-compose.yml`****: To create docker containers
+
